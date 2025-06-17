@@ -1,8 +1,9 @@
 const express = require('express')
+const query = require('../db/leaderBoardQueries')
 
-function getTest(req, res){
-    res.send('test')
-    return ''
+async function getTest(req, res){
+    const t = await query.test()
+    res.send(t.rows[0])
 }
 
 module.exports = {
