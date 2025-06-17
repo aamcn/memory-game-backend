@@ -1,13 +1,15 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const leaderBoardRouter = require('./routes/leaderBoardRouter')
+const hardLeaderBoardRouter = require('./routes/hardLeaderBoardRouter')
 
 
 const port = 3000
 
 
-app.use('/leaderboard', leaderBoardRouter)
+app.use('/hard-leader-board', hardLeaderBoardRouter)
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
