@@ -1,14 +1,20 @@
-const express = require('express')
-const router = express.Router()
-const mediumLeaderBoardRouter = router
-const mediumLeaderBoardController = require('../controllers/hardLeaderBoardController')
+const express = require("express");
+const router = express.Router();
+const mediumLeaderBoardRouter = router;
+const mediumLeaderBoardController = require("../controllers/hardLeaderBoardController");
 
+mediumLeaderBoardRouter.get(
+  "/all-medium-scores",
+  mediumLeaderBoardController.getAllHardScores,
+);
+mediumLeaderBoardRouter.get(
+  "/medium-score-by-id",
+  mediumLeaderBoardController.getHardScoreById,
+);
 
-mediumLeaderBoardRouter.get('/all-medium-scores', mediumLeaderBoardController.getAllHardScores)
-mediumLeaderBoardRouter.get('/medium-score-by-id', mediumLeaderBoardController.getHardScoreById)
+mediumLeaderBoardRouter.post(
+  "/add-medium-top-scorer",
+  mediumLeaderBoardController.addHardHighScorer,
+);
 
-mediumLeaderBoardRouter.post('/add-medium-top-scorer', mediumLeaderBoardController.addHardHighScorer)
-
-
-module.exports = mediumLeaderBoardRouter
-
+module.exports = mediumLeaderBoardRouter;

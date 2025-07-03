@@ -1,24 +1,31 @@
 {
-  "dependencies": {
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "pg": "^8.16.0"
-  },
   "name": "memory-game-backend",
   "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "",
+  "homepage": "https://github.com/Aaronmcnulty/memory-game-backend#readme",
+  "bugs": {
+    "url": "https://github.com/Aaronmcnulty/memory-game-backend/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Aaronmcnulty/memory-game-backend.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Aaronmcnulty/memory-game-backend/issues"
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/Aaronmcnulty/memory-game-backend#readme",
-  "description": ""
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "eslint": "^9.30.1",
+    "globals": "^16.3.0",
+    "prettier": "3.6.2"
+  }
 }
