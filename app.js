@@ -11,10 +11,11 @@ app.use("easy-leader-board", easyLeaderBoardRouter);
 app.use("/hard-leader-board", hardLeaderBoardRouter);
 app.use("/medium-leader-board", mediumLeaderBoardRouter);
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/test", (req, res) => {
+  res.send("Hello from the memory game back end!");
 });
 
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Memory Game Backend listening on port ${port}`);
 });
