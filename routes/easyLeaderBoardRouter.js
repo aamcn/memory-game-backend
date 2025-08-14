@@ -4,6 +4,11 @@ const easyLeaderBoardRouter = router;
 const easyLeaderBoardController = require("../controllers/easyLeaderBoardController");
 
 easyLeaderBoardRouter.get(
+  "/",
+  easyLeaderBoardController.getEasyTest,
+);
+
+easyLeaderBoardRouter.get(
   "/all-easy-scores",
   easyLeaderBoardController.getAllEasyScores,
 );
