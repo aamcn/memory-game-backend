@@ -10,10 +10,10 @@ async function getEasyScoreById(id) {
   );
 }
 
-async function addEasyHighScorer(id, name, time, score) {
+async function addEasyHighScorer(playerName, finishTime) {
   await pool.query(
-    "INSERT INTO easy_leader_board (id, name, time, score) VALUES ($1, $2, $3, $4)",
-    [id, name, time, score],
+    "INSERT INTO easy_leader_board (player_name, finish_time) VALUES ($1, $2)",
+    [playerName, finishTime],
   );
 }
 

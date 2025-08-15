@@ -1,8 +1,4 @@
-const express = require("express");
 const query = require("../db/easyLeaderBoardQueries");
-
-
-
 
 async function getEasyTest(req, res) {
   
@@ -21,7 +17,8 @@ async function getEasyScoreById(req, res) {
 }
 
 async function addEasyHighScorer(req, res) {
-  await query.addEasyHighScorer(2, "han", 29, 9);
+  const { playerName, finishTime } = req.body;
+  await query.addEasyHighScorer(playerName, finishTime);
   res.send(200);
 }
 
