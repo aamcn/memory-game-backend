@@ -3,15 +3,19 @@ async function getEasyTest(req, res) {
   res.status(200).send('Success');
 }
 
+// Call the getAllEasyScores function and return results if successful
+// If successful, return the entries; otherwise, forward the error.
 async function getAllEasyScores(req, res, next) {
-  const allScores = await query.getAllEasyScores();
   try {
-  res.status(200).send(allScores.rows);
+    const allScores = await query.getAllEasyScores();
+    res.status(200).send(allScores.rows);
   } catch (error) {
     next(error); // Forward error to global handler
   }
 }
 
+// Extract id from request parameters and pass to getEasyScoreById.
+// If successful, return the entry; otherwise, forward the error.
 async function getEasyScoreById(req, res, next) {
     try {
       const id = req.body.id;
@@ -22,6 +26,8 @@ async function getEasyScoreById(req, res, next) {
   }
 }
 
+// Extract new high score details from the request body and pass to addEasyHighScorer.
+// If successful, return a success message; otherwise, forward the error.
 async function addEasyHighScorer(req, res, next) {
   try {
     const { playerName, finishTime } = req.body;
@@ -31,8 +37,6 @@ async function addEasyHighScorer(req, res, next) {
     next(error);
   }
 }
-
-
 
 module.exports = {
   getEasyTest,

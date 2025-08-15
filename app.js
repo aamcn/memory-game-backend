@@ -21,9 +21,11 @@ app.use("/medium-leader-board", mediumLeaderBoardRouter);
 // Error handling middleware
 app.use(errorHandler.errorHandler);
 
+//Test route
 app.get("/test", (req, res) => {
   res.send("Hello from the memory game back end!");
 }); 
+
 
 app.listen(port, () => {
   console.log(`Memory Game Backend listening on port ${port}`);
