@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const mediumLeaderBoardRouter = router;
 const mediumLeaderBoardController = require("../controllers/mediumLeaderBoardController");
+const {
+  addHighScorerValidation,
+  getScoreByIdValidation,
+  handleValidationErrors,
+} = require("../validation/validationRules");
 
 //GET routes
 
@@ -11,6 +16,8 @@ mediumLeaderBoardRouter.get(
 );
 mediumLeaderBoardRouter.get(
   "/medium-score-by-id",
+  getScoreByIdValidation,
+  handleValidationErrors,
   mediumLeaderBoardController.getMediumScoreById,
 );
 
@@ -18,6 +25,8 @@ mediumLeaderBoardRouter.get(
 
 mediumLeaderBoardRouter.post(
   "/add-medium-top-scorer",
+  addHighScorerValidation,
+  handleValidationErrors,
   mediumLeaderBoardController.addMediumHighScorer,
 );
 

@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const easyLeaderBoardRouter = router;
 const easyLeaderBoardController = require("../controllers/easyLeaderBoardController");
+const {
+  addHighScorerValidation,
+  getScoreByIdValidation,
+  handleValidationErrors,
+} = require("../validation/validationRules");
 
 //GET routes
 
@@ -16,6 +21,8 @@ easyLeaderBoardRouter.get(
 );
 easyLeaderBoardRouter.get(
   "/easy-score-by-id",
+  getScoreByIdValidation,
+  handleValidationErrors,
   easyLeaderBoardController.getEasyScoreById,
 );
 
@@ -23,6 +30,8 @@ easyLeaderBoardRouter.get(
 
 easyLeaderBoardRouter.post(
   "/add-easy-top-scorer",
+  addHighScorerValidation,
+  handleValidationErrors,
   easyLeaderBoardController.addEasyHighScorer,
 );
 

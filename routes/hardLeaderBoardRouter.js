@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const hardLeaderBoardRouter = router;
 const hardLeaderBoardController = require("../controllers/hardLeaderBoardController");
+const {
+  addHighScorerValidation,
+  getScoreByIdValidation,
+  handleValidationErrors,
+} = require("../validation/validationRules");
 
 //GET routes
 
@@ -11,6 +16,8 @@ hardLeaderBoardRouter.get(
 );
 hardLeaderBoardRouter.get(
   "/hard-score-by-id",
+  getScoreByIdValidation,
+  handleValidationErrors,
   hardLeaderBoardController.getHardScoreById,
 );
 
@@ -18,6 +25,8 @@ hardLeaderBoardRouter.get(
 
 hardLeaderBoardRouter.post(
   "/add-hard-top-scorer",
+  addHighScorerValidation,
+  handleValidationErrors,
   hardLeaderBoardController.addHardHighScorer,
 );
 
