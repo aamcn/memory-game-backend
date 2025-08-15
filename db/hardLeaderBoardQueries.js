@@ -6,7 +6,8 @@ async function getAllHardScores() {
 
 async function getHardScoreById(id) {
   return await pool.query(
-    `SELECT * FROM hard_leaderboard WHERE id = ${id};`,
+    "SELECT * FROM hard_leaderboard WHERE id = $1;",
+    [id],
   );
 }
 

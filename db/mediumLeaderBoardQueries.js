@@ -6,7 +6,8 @@ async function getAllMediumScores() {
 
 async function getMediumScoreById(id) {
   return await pool.query(
-    `SELECT * FROM medium_leaderboard WHERE id = ${id};`,
+    "SELECT * FROM medium_leaderboard WHERE id = $1;",
+    [id],
   );
 }
 
