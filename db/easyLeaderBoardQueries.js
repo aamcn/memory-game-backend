@@ -6,7 +6,8 @@ async function getAllEasyScores() {
 
 async function getEasyScoreById(id) {
   return await pool.query(
-    `SELECT * FROM easy_leader_board WHERE id = ${id};`,
+    "SELECT * FROM easy_leader_board WHERE id = $1;",
+    [id],
   );
 }
 
