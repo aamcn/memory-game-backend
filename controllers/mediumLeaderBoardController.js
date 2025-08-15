@@ -1,4 +1,3 @@
-const express = require("express");
 const query = require("../db/mediumLeaderBoardQueries");
 
 async function getAllMediumScores(req, res) {
@@ -13,7 +12,8 @@ async function getMediumScoreById(req, res) {
 }
 
 async function addMediumHighScorer(req, res) {
-  await query.addMediumHighScorer(2, "han", 29, 9);
+  const { playerName, finishTime } = req.body;
+  await query.addMediumHighScorer(playerName, finishTime);
   res.send(200);
 }
 

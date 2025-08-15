@@ -1,4 +1,3 @@
-const express = require("express");
 const query = require("../db/hardLeaderBoardQueries");
 
 async function getAllHardScores(req, res) {
@@ -7,13 +6,14 @@ async function getAllHardScores(req, res) {
 }
 
 async function getHardScoreById(req, res) {
-  const id = req.body.id;
-  const score = await query.getHardScoreById(id);
+      const id = req.body.id;
+      const score = await query.getHardScoreById(id);
   res.send(score.rows);
 }
 
 async function addHardHighScorer(req, res) {
-  await query.addHardHighScorer(2, "han", 29, 9);
+  const { playerName, finishTime } = req.body;
+  await query.addHardHighScorer(playerName, finishTime);
   res.send(200);
 }
 
