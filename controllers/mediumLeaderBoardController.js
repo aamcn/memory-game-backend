@@ -1,20 +1,32 @@
 const query = require("../db/mediumLeaderBoardQueries");
 
-async function getAllMediumScores(req, res) {
-  const allScores = await query.getAllHardScores();
-  res.send(allScores.rows);
+async function getAllMediumScores(req, res, next) {
+  try {
+    const allScores = await query.getAllMediumScores();
+    res.status(200).send(allScores.rows);
+  } catch (error) {
+    next(error); // Forward error to global handler
+  }
 }
 
-async function getMediumScoreById(req, res) {
+async function getMediumScoreById(req, res, next) {
   const id = req.body.id;
-  const score = await query.getHardScoreById(id);
-  res.send(score.rows);
+  try {
+    const score = await query.getMediumScoreById(id);
+    res.status(200).send(score.rows);
+  } catch (error) {
+    next(error); // Forward error to global handler
+  }
 }
 
-async function addMediumHighScorer(req, res) {
+async function addMediumHighScorer(req, res, next) {
   const { playerName, finishTime } = req.body;
-  await query.addMediumHighScorer(playerName, finishTime);
-  res.send(200);
+  try {
+    await query.addMediumHighScorer(playerName, finishTime);
+    res.status(200).send("Success");
+  } catch (error) {
+    next(error); // Forward error to global handler
+  }
 }
 
 module.exports = {
