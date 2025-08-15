@@ -13,11 +13,11 @@ async function getAllHardScores(req, res, next) {
   }
 }
 
-// Extract id from request parameters and pass to getHardScoreById.
+// Extract id from request query parameters and pass to getHardScoreById.
 // If successful, return the entry; otherwise, forward the error.
 async function getHardScoreById(req, res, next) {
-  const id = req.body.id;
   try {
+    const id = req.query.id;
     const score = await query.getHardScoreById(id);
     res.status(200).send(score.rows);
   } catch (error) {
@@ -28,10 +28,10 @@ async function getHardScoreById(req, res, next) {
 // Extract new high score details from the request body and pass to addHardHighScorer.
 // If successful, return a success message; otherwise, forward the error.
 async function addHardHighScorer(req, res, next) {
-  const { playerName, finishTime } = req.body;
-   try {
-      await query.addHardHighScorer(playerName, finishTime);
-      res.status(200).send("Success");
+  try {
+    const { playerName, finishTime } = req.body;
+    await query.addHardHighScorer(playerName, finishTime);
+    res.status(200).send("Success");
   } catch (error) {
     next(error);  // Forward error to global handler
   }

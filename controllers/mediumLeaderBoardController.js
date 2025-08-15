@@ -12,11 +12,11 @@ async function getAllMediumScores(req, res, next) {
   }
 }
 
-// Extract id from request parameters and pass to getMediumScoreById.
+// Extract id from request query parameters and pass to getMediumScoreById.
 // If successful, return the entry; otherwise, forward the error.
 async function getMediumScoreById(req, res, next) {
-  const id = req.body.id;
   try {
+    const id = req.query.id;
     const score = await query.getMediumScoreById(id);
     res.status(200).send(score.rows);
   } catch (error) {
@@ -27,8 +27,8 @@ async function getMediumScoreById(req, res, next) {
 // Extract new high score details from the request body and pass to addMediumHighScorer.
 // If successful, return a success message; otherwise, forward the error.
 async function addMediumHighScorer(req, res, next) {
-  const { playerName, finishTime } = req.body;
   try {
+    const { playerName, finishTime } = req.body;
     await query.addMediumHighScorer(playerName, finishTime);
     res.status(200).send("Success");
   } catch (error) {
