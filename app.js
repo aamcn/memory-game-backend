@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors"); 
 
 const app = express();
 const hardLeaderBoardRouter = require("./routes/hardLeaderBoardRouter");
@@ -8,8 +9,9 @@ const mediumLeaderBoardRouter = require("./routes/mediumLeaderBoardRouter");
 const easyLeaderBoardRouter = require("./routes/easyLeaderBoardRouter");
 const errorHandler = require("./errorMiddleware/errorMiddleware");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors()); // Enable CORS for all routes
+app.use(bodyParser.json()); // Parse JSON request bodies
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 
 const port = 3000;
 
@@ -23,8 +25,8 @@ app.use(errorHandler.errorHandler);
 
 //Test route
 app.get("/test", (req, res) => {
-  res.send("Hello from the memory game back end!");
-}); 
+  res.send({"message": "Hello from the memory game back end!"});
+});
 
 
 app.listen(port, () => {
