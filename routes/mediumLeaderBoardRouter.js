@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mediumLeaderBoardRouter = router;
 const mediumLeaderBoardController = require("../controllers/mediumLeaderBoardController");
+
 const {
   addHighScorerValidation,
   getScoreByIdValidation,

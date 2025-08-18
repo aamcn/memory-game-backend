@@ -15,7 +15,7 @@ const addHighScorerValidation = [
     .notEmpty()
     .withMessage("Finish time is required")
     .isLength({ min: 8, max: 8 })
-    .withMessage("Finish time must be exactly 9 characters long"),
+    .withMessage("Finish time must be exactly 8 characters long"),
 ];
 
 // Validation rules for getting score by ID
