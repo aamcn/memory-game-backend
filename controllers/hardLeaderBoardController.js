@@ -1,7 +1,5 @@
 const query = require("../db/hardLeaderBoardQueries");
 
-
-
 // Call the getAllHardScores function and return results if successful
 // If successful, return the entries; otherwise, forward the error.
 async function getAllHardScores(req, res, next) {
@@ -33,7 +31,7 @@ async function addHardHighScorer(req, res, next) {
     await query.addHardHighScorer(playerName, finishTime);
     res.status(200).send("Success");
   } catch (error) {
-    next(error);  // Forward error to global handler
+    next(error); // Forward error to global handler
   }
 }
 

@@ -1,6 +1,5 @@
 const { body, query, validationResult } = require("express-validator");
 
-
 // Validation rules for adding high scorers
 const addHighScorerValidation = [
   body("playerName")

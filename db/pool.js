@@ -7,4 +7,3 @@ module.exports = new Pool({
   port: process.env.POOLPORT,
   database: process.env.POOLDATABASE,
 });
- 

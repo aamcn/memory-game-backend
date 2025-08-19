@@ -7,10 +7,9 @@ async function getAllEasyScores() {
 
 // Get a specific entry from the easy leaderboard table by id.
 async function getEasyScoreById(id) {
-  return await pool.query(
-    "SELECT * FROM easy_leader_board WHERE id = $1;",
-    [id],
-  );
+  return await pool.query("SELECT * FROM easy_leader_board WHERE id = $1;", [
+    id,
+  ]);
 }
 
 // Add a new high scorer to the easy leaderboard table.

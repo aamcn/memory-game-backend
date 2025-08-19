@@ -1,6 +1,5 @@
 const query = require("../db/mediumLeaderBoardQueries");
 
-
 // Call the getAllMediumScores function and return results if successful
 // If successful, return the entries; otherwise, forward the error.
 async function getAllMediumScores(req, res, next) {

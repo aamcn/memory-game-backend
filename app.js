@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors"); 
+const cors = require("cors");
 
 const app = express();
 const hardLeaderBoardRouter = require("./routes/hardLeaderBoardRouter");
@@ -25,9 +25,8 @@ app.use(errorHandler.errorHandler);
 
 //Test route
 app.get("/test", (req, res) => {
-  res.send({"message": "Hello from the memory game back end!"});
+  res.send({ message: "Hello from the memory game back end!" });
 });
-
 
 app.listen(port, () => {
   console.log(`Memory Game Backend listening on port ${port}`);

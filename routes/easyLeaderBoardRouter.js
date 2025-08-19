@@ -10,10 +10,7 @@ const {
 
 //GET routes
 
-easyLeaderBoardRouter.get(
-  "/",
-  easyLeaderBoardController.getEasyTest,
-);
+easyLeaderBoardRouter.get("/", easyLeaderBoardController.getEasyTest);
 
 easyLeaderBoardRouter.get(
   "/all-easy-scores",
@@ -36,4 +33,3 @@ easyLeaderBoardRouter.post(
 );
 
 module.exports = easyLeaderBoardRouter;
- 
